@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Elsayed | GIS Specialist & Web Developer</title>
+  <meta name="description" content="Portfolio of Mohamed Elsayed, GIS Specialist, Web GIS Team Leader, and Web Developer building spatial systems, WordPress platforms, and data-driven digital products." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --ink: #14212f;
+      --muted: #667489;
+      --line: #dfe7ef;
+      --paper: #f7f9fb;
+      --panel: #ffffff;
+      --navy: #102a43;
+      --navy-2: #193b5a;
+      --teal: #0f766e;
+      --teal-soft: #dff3ef;
+      --amber: #c9822f;
+      --amber-soft: #fff3df;
+      --surface: #eef4f7;
+      --blue-soft: #e8f0f6;
+      --shadow: 0 18px 55px rgba(16, 42, 67, 0.12);
+      --shadow-strong: 0 28px 78px rgba(16, 42, 67, 0.18);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f8fafc 0%, #f3f7fa 42%, #f8fafc 100%);
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 250, 252, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(217, 224, 232, 0.85);
+      animation: slideDown 0.55s ease both;
+    }
+
+    .site-nav::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: var(--scroll-progress, 0%);
+      height: 2px;
+      background: var(--teal);
+      transition: width 0.1s linear;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.is-active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-links a.is-active {
+      color: var(--navy);
+    }
+
+    .page-shell {
+      overflow: hidden;
+    }
+
+    .hero {
+      min-height: calc(100vh - 64px);
+      background:
+        linear-gradient(90deg, rgba(248,250,252,0.99) 0%, rgba(248,250,252,0.92) 43%, rgba(248,250,252,0.2) 100%),
+        url("me.jpg") right center / auto 100% no-repeat,
+        var(--surface);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      animation: heroPhotoIn 1.15s ease both;
+    }
+
+    .hero::before {
+      content: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(15, 118, 110, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 118, 110, 0.07) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(90deg, #000 0%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 76px 24px 58px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.64fr) minmax(280px, 0.36fr);
+      gap: 34px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: var(--amber);
+      border-radius: 999px;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 5vw, 5.2rem);
+      line-height: 0.97;
+      letter-spacing: 0;
+      color: var(--navy);
+      max-width: 820px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.75s ease 0.2s both;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      color: #3f5064;
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+      animation: fadeUp 0.75s ease 0.32s both;
+    }
+
+    .hero-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-actions {
+      animation: fadeUp 0.75s ease 0.44s both;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out), background 0.28s ease, border-color 0.28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.34) 48%, transparent 54%);
+      transform: translateX(-120%);
+      transition: transform 0.55s ease;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--navy);
+      box-shadow: 0 16px 34px rgba(16, 42, 67, 0.24);
+    }
+
+    .btn-secondary {
+      color: var(--navy);
+      background: #fff;
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(15, 118, 110, 0.38);
+      background: #fbfefd;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .btn:hover::after {
+      transform: translateX(120%);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(223, 231, 239, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      width: min(100%, 360px);
+      justify-self: end;
+      animation: floatIn 0.85s ease 0.5s both;
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card h2 {
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .quick-list span,
+    .quick-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quick-list i {
+      color: var(--teal);
+      width: 18px;
+    }
+
+    .metrics {
+      max-width: var(--max);
+      margin: -42px auto 0;
+      padding: 0 24px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .metric {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .metric:hover {
+      background: #f4fbf9;
+      transform: translateY(-4px);
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 88px 24px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.36fr) minmax(0, 0.64fr);
+      gap: 38px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-label {
+      color: var(--amber);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      color: var(--navy);
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      line-height: 1.12;
+      margin-top: 8px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 760px;
+    }
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(16, 42, 67, 0.06);
+      transition: transform 0.32s var(--ease-out), box-shadow 0.32s var(--ease-out), border-color 0.32s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before,
+    .project::before,
+    .experience-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s var(--ease-out);
+    }
+
+    .panel:hover {
+      transform: translateY(-5px);
+      border-color: rgba(15, 118, 110, 0.35);
+      box-shadow: 0 20px 46px rgba(16, 42, 67, 0.11);
+    }
+
+    .panel:hover::before,
+    .project:hover::before,
+    .experience-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .panel-icon {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius);
+      color: var(--teal);
+      background: var(--teal-soft);
+      margin-bottom: 18px;
+    }
+
+    .panel h3 {
+      color: var(--navy);
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gis-section {
+      max-width: none;
+      margin-top: 88px;
+      padding: 84px 24px;
+      background:
+        linear-gradient(180deg, #edf6f4 0%, #f7faf9 100%);
+      border-top: 1px solid #d8e9e5;
+      border-bottom: 1px solid #d8e9e5;
+    }
+
+    .gis-section > .section-head,
+    .gis-showcase {
+      max-width: var(--max);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gis-showcase {
+      display: block;
+    }
+
+    .gis-intro-card {
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .gis-intro-card h3 {
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .gis-intro-card p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.98rem;
+    }
+
+    .gis-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .gis-pill {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .gis-actions {
+      display: grid;
+      gap: 10px;
+      min-width: 190px;
+    }
+
+    .gallery-trigger {
+      width: 100%;
+      min-height: 48px;
+      font-family: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--navy);
+      background: #fff;
+    }
+
+    .gallery-trigger.secondary {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      padding: 24px;
+      background: rgba(10, 16, 22, 0.88);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+
+    .gallery-panel {
+      width: min(1120px, 96vw);
+      max-height: 88vh;
+      overflow: auto;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    .gallery-head {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .gallery-head h3 {
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .gallery-close {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #f7fafb;
+      color: var(--navy);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .popup-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .popup-gallery-grid img,
+    .popup-gallery-grid video {
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      object-fit: cover;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: #101820;
+    }
+
+    .gis-gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .gis-tile {
+      position: relative;
+      min-height: 160px;
+      grid-column: span 2;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #d4dfdd;
+      background: #fff;
+      box-shadow: 0 12px 34px rgba(23, 50, 77, 0.07);
+    }
+
+    .gis-tile.large {
+      grid-column: span 4;
+      grid-row: span 2;
+      min-height: 330px;
+    }
+
+    .gis-tile.wide {
+      grid-column: span 3;
+    }
+
+    .gis-tile img,
+    .gis-tile video {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      background: #101820;
+    }
+
+    .gis-tile img {
+      cursor: pointer;
+    }
+
+    .tile-caption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 800;
+      background: rgba(10, 16, 22, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 8px 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    .almashaar-case {
+      max-width: var(--max);
+      margin: 26px auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.48fr) minmax(0, 0.52fr);
+      gap: 0;
+      background: #fff;
+      border: 1px solid #d4dfdd;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .almashaar-copy {
+      padding: 34px;
+      align-self: center;
+    }
+
+    .almashaar-copy h3 {
+      color: var(--navy);
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      line-height: 1.08;
+      margin: 8px 0 14px;
+    }
+
+    .almashaar-copy p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .almashaar-points {
+      display: grid;
+      gap: 10px;
+      color: #334255;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .almashaar-points span {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .almashaar-points i {
+      color: var(--teal);
+    }
+
+    .almashaar-mosaic {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 12px;
+      background: #f4f8f7;
+    }
+
+    .almashaar-mosaic img {
+      width: 100%;
+      height: 138px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #dce6e4;
+    }
+
+    .almashaar-mosaic img:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+      height: 284px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(16, 42, 67, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.34s var(--ease-out), box-shadow 0.34s var(--ease-out), border-color 0.34s ease;
+      position: relative;
+    }
+
+    .project:hover {
+      transform: translateY(-7px);
+      border-color: rgba(15, 118, 110, 0.32);
+      box-shadow: 0 24px 58px rgba(16, 42, 67, 0.14);
+    }
+
+    .project-cover {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      cursor: pointer;
+      border-bottom: 1px solid var(--line);
+      background: var(--blue-soft);
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .project:hover .project-cover {
+      transform: scale(1.035);
+      filter: saturate(1.06) contrast(1.02);
+    }
+
+    .project-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .project-title h3 {
+      color: var(--navy);
+      font-size: 1.03rem;
+      line-height: 1.25;
+    }
+
+    .project-title i {
+      color: var(--amber);
+      margin-top: 3px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .project-gallery img {
+      height: 46px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid var(--line);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: transform 0.32s var(--ease-out), box-shadow 0.32s var(--ease-out), border-color 0.32s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-item:hover {
+      transform: translateX(6px);
+      border-color: rgba(201, 130, 47, 0.32);
+      box-shadow: 0 18px 42px rgba(16, 42, 67, 0.1);
+    }
+
+    .date {
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .experience-item h3 {
+      color: var(--navy);
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .experience-item p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .skill-group h3 {
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      color: #27384a;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      transition: transform 0.22s var(--ease-out), border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-2px);
+      border-color: rgba(15, 118, 110, 0.34);
+      background: #f4fbf9;
+    }
+
+    .contact-section {
+      padding-bottom: 88px;
+    }
+
+    .contact-panel {
+      background:
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .contact-panel p {
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 680px;
+    }
+
+    .contact-panel .btn-secondary {
+      color: var(--navy);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: #fff;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(10, 16, 22, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: min(1120px, 94vw);
+      max-height: 88vh;
+      border-radius: var(--radius);
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.72s var(--ease-out),
+        transform 0.72s var(--ease-out);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.975);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes heroPhotoIn {
+      from {
+        opacity: 0.86;
+        filter: saturate(0.9);
+      }
+      to {
+        opacity: 1;
+        filter: saturate(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .close {
+      position: fixed;
+      top: 18px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(248,250,252,0.98) 0%, rgba(248,250,252,0.92) 58%, rgba(248,250,252,0.64) 100%),
+          url("me.jpg") right bottom / auto 70% no-repeat,
+          var(--surface);
+      }
+
+      .hero-inner,
+      .section-head,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        justify-self: start;
+      }
+
+      .metrics-grid,
+      .capabilities,
+      .project-grid,
+      .skills-wrap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gis-showcase,
+      .almashaar-case {
+        grid-template-columns: 1fr;
+      }
+
+      .gis-intro-card {
+        grid-template-columns: 1fr;
+      }
+
+      .metric:nth-child(2) {
+        border-right: 0;
+      }
+
+      .metric:nth-child(1),
+      .metric:nth-child(2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 18px;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--surface);
+      }
+
+      .hero::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 320px;
+        background: url("me.jpg") center 18% / cover no-repeat;
+        border-bottom: 1px solid var(--line);
+        animation: mobilePhotoIn 0.9s ease both;
+      }
+
+      .hero-inner {
+        padding: 34px 18px 38px;
+        gap: 18px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        min-width: 0;
+        padding: 12px 10px;
+      }
+
+      .hero-actions .btn:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .hero-card {
+        width: 100%;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .hero-card h2 {
+        font-size: 1rem;
+      }
+
+      .quick-list {
+        gap: 10px;
+      }
+
+      .metrics {
+        margin-top: 0;
+        padding: 0 18px;
+      }
+
+      .metrics-grid,
+      .capabilities,
+      .project-grid,
+      .skills-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .gis-section {
+        margin-top: 62px;
+        padding: 62px 18px;
+      }
+
+      .gis-gallery,
+      .almashaar-mosaic {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .popup-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gis-tile,
+      .gis-tile.large,
+      .gis-tile.wide {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 190px;
+      }
+
+      .almashaar-mosaic img,
+      .almashaar-mosaic img:first-child {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: 170px;
+      }
+
+      .popup-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      section {
+        padding: 62px 18px 0;
+      }
+
+      .project-gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .contact-panel {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero::before {
+        height: 285px;
+        background-position: center 16%;
+      }
+
+      .hero-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn:last-child {
+        grid-column: auto;
+      }
+    }
+
+    @keyframes mobilePhotoIn {
+      from {
+        opacity: 0;
+        transform: scale(1.04);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Mohamed Elsayed</a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Web</a>
+        <a href="#gis">GIS</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="page-shell">
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">GIS Specialist · Web GIS Team Leader · Web Developer</span>
+          <h1>Spatial data, web platforms, and digital products that ship.</h1>
+          <p class="hero-copy">
+            I build practical GIS and web solutions for teams that need accurate maps, organized data, custom WordPress systems, and reliable project delivery.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-layer-group"></i> Web Projects</a>
+            <a class="btn btn-secondary" href="#gis"><i class="fa-solid fa-map-location-dot"></i> GIS Work</a>
+            <a class="btn btn-secondary" href="mailto:elsayedabo00@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Contact details">
+          <h2>Available for GIS and web projects</h2>
+          <div class="quick-list">
+            <span><i class="fa-solid fa-location-dot"></i> Zagazig, Egypt</span>
+            <span><i class="fa-solid fa-envelope"></i> elsayedabo00@gmail.com</span>
+            <span><i class="fa-solid fa-phone"></i> +20 155 030 1638</span>
+            <a href="https://www.linkedin.com/in/mohamed-elsayed-74283121a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn / mohamed-elsayed</a>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="metrics" aria-label="Portfolio highlights">
+      <div class="metrics-grid">
+        <div class="metric"><strong>10+</strong><span>Published web projects</span></div>
+        <div class="metric"><strong>3+</strong><span>Years GIS and mapping</span></div>
+        <div class="metric"><strong>2026</strong><span>Web GIS Team Leader</span></div>
+        <div class="metric"><strong>Full</strong><span>Data to deployment workflow</span></div>
+      </div>
+    </div>
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Experience</span>
+          <h2>Recent roles and applied delivery.</h2>
+        </div>
+        <p>
+          Experience across leadership, freelance delivery, website administration, content systems, and GIS production.
+        </p>
+      </div>
+
+      <div class="experience-list">
+        <article class="experience-item">
+          <div class="date">Feb 2026 - Present</div>
+          <div>
+            <h3>Web GIS Team Leader - Life Shield, Egypt</h3>
+            <p>Leading web GIS delivery, preparing technical reports, building custom web applications, solving operational issues, and producing high-quality spatial outputs.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">Aug 2025 - Feb 2026</div>
+          <div>
+            <h3>Web Developer & Data Specialist - Conex, Kuwait</h3>
+            <p>Developed and customized WordPress websites, integrated MyFatoorah payments, and improved data structure and platform information architecture.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">Jun 2025 - Jan 2026</div>
+          <div>
+            <h3>Data Entry & Website Administrator - Howeya Platform</h3>
+            <p>Managed dashboards, content publishing, backend updates, video editing, plugins, and user interface improvements.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">Nov 2022 - Present</div>
+          <div>
+            <h3>Freelancer - GIS & Web Development</h3>
+            <p>Delivered 2D and 3D spatial mapping, interactive Web GIS applications, custom websites, and database-supported tools.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">2019 - 2023</div>
+          <div>
+            <h3>Bachelor's Degree in Geomatics - Zagazig University</h3>
+            <p>Graduated with Very Good grade, with applied focus on GIS, surveying, remote sensing, and mapping workflows.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Web Projects</span>
+          <h2>Conference platforms, cultural products, apps, and business websites.</h2>
+        </div>
+        <p>
+          A focused selection of production work with real interfaces and published links. Open any screenshot to inspect it in a larger view.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project">
+          <img src="ConexKW/screencapture-conexkw-2026-05-14-17_23_06.png" alt="ConexKW website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>ConexKW</h3><i class="fa-solid fa-plug"></i></div>
+            <p>Technology services platform with custom WordPress development, product structure, registration pages, and payment gateway integration.</p>
+            <div class="project-gallery">
+              <img src="ConexKW/screencapture-conexkw-2026-05-14-17_23_06.png" alt="ConexKW homepage" onclick="openModal(this)">
+              <img src="ConexKW/screencapture-conexkw-registration-system-2026-05-14-17_23_49.png" alt="ConexKW registration" onclick="openModal(this)">
+              <img src="ConexKW/screencapture-conexkw-product-category-all-2026-05-14-17_24_31.png" alt="ConexKW products" onclick="openModal(this)">
+              <img src="ConexKW/screencapture-conexkw-our-projects-2026-05-14-17_24_51.png" alt="ConexKW projects" onclick="openModal(this)">
+              <img src="ConexKW/screencapture-conexkw-contact-2026-05-14-17_26_11.png" alt="ConexKW contact" onclick="openModal(this)">
+            </div>
+            <a href="https://conexkw.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="kuwaitelectricity/screencapture-kuwaitelectricity-2026-05-14-17_27_48.png" alt="Kuwait Electricity website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>Kuwait Electricity</h3><i class="fa-solid fa-bolt"></i></div>
+            <p>Conference and workshop platform for Kuwait's electricity sector with event content, registration paths, and structured pages.</p>
+            <div class="project-gallery">
+              <img src="kuwaitelectricity/screencapture-kuwaitelectricity-2026-05-14-17_27_48.png" alt="Kuwait Electricity homepage" onclick="openModal(this)">
+              <img src="kuwaitelectricity/screencapture-kuwaitelectricity-workshop-2026-05-14-17_29_34.png" alt="Kuwait Electricity workshop" onclick="openModal(this)">
+              <img src="kuwaitelectricity/screencapture-kuwaitelectricity-package-2026-05-14-17_30_03.png" alt="Kuwait Electricity package" onclick="openModal(this)">
+              <img src="kuwaitelectricity/screencapture-kuwaitelectricity-call-for-speakers-2026-05-14-17_31_47.png" alt="Kuwait Electricity speakers" onclick="openModal(this)">
+              <img src="kuwaitelectricity/screencapture-kuwaitelectricity-contact-us-2026-05-14-17_32_43.png" alt="Kuwait Electricity contact" onclick="openModal(this)">
+            </div>
+            <a href="https://kuwaitelectricity.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="Howeya App/WhatsApp Image 2026-05-14 at 5.47.35 PM.jpeg" alt="Howeya App mobile screen" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>Howeya App</h3><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <p>Mobile application experience for Islamic culture learning with organized content, accessible screens, and platform-focused structure.</p>
+            <div class="project-gallery">
+              <img src="Howeya App/WhatsApp Image 2026-05-14 at 5.47.35 PM.jpeg" alt="Howeya App screen 1" onclick="openModal(this)">
+              <img src="Howeya App/WhatsApp Image 2026-05-14 at 5.47.38 PM.jpeg" alt="Howeya App screen 2" onclick="openModal(this)">
+              <img src="Howeya App/WhatsApp Image 2026-05-14 at 5.47.41 PM.jpeg" alt="Howeya App screen 3" onclick="openModal(this)">
+              <img src="Howeya App/WhatsApp Image 2026-05-14 at 5.47.43 PM.jpeg" alt="Howeya App screen 4" onclick="openModal(this)">
+              <img src="Howeya App/WhatsApp Image 2026-05-14 at 5.47.45 PM.jpeg" alt="Howeya App screen 6" onclick="openModal(this)">
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="facility/screencapture-kwfacility-2025-12-21-13_45_17.png" alt="KW Facility website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>KW Facility</h3><i class="fa-solid fa-building"></i></div>
+            <p>Conference facility management website covering speakers, workshops, floor plans, packages, and event pages.</p>
+            <div class="project-gallery">
+              <img src="facility/screencapture-kwfacility-2025-12-21-13_45_17.png" alt="KW Facility homepage" onclick="openModal(this)">
+              <img src="facility/screencapture-kwfacility-call-for-speakers-2025-12-21-13_46_27.png" alt="KW Facility speakers" onclick="openModal(this)">
+              <img src="facility/screencapture-kwfacility-workshop-2025-12-21-13_47_19.png" alt="KW Facility workshop" onclick="openModal(this)">
+              <img src="facility/screencapture-kwfacility-floor-plan-2025-12-21-13_48_59.png" alt="KW Facility floor plan" onclick="openModal(this)">
+              <img src="facility/screencapture-kwfacility-package-2025-12-21-13_49_57.png" alt="KW Facility package" onclick="openModal(this)">
+            </div>
+            <a href="https://kwfacility.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="fidic/screencapture-gccfidic-2025-12-21-13_53_45.png" alt="GCC FIDIC website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>GCC FIDIC</h3><i class="fa-solid fa-file-contract"></i></div>
+            <p>Engineering contracts conference website with workshop, registration, speaker, floor plan, and contact pages.</p>
+            <div class="project-gallery">
+              <img src="fidic/screencapture-gccfidic-2025-12-21-13_53_45.png" alt="GCC FIDIC homepage" onclick="openModal(this)">
+              <img src="fidic/screencapture-gccfidic-call-for-speakers-2025-12-21-13_54_10.png" alt="GCC FIDIC speakers" onclick="openModal(this)">
+              <img src="fidic/screencapture-gccfidic-workshop-2025-12-21-13_54_35.png" alt="GCC FIDIC workshop" onclick="openModal(this)">
+              <img src="fidic/screencapture-gccfidic-registration-2025-12-21-13_55_34.png" alt="GCC FIDIC registration" onclick="openModal(this)">
+              <img src="fidic/screencapture-gccfidic-contact-2025-12-21-13_56_13.png" alt="GCC FIDIC contact" onclick="openModal(this)">
+            </div>
+            <a href="https://gccfidic.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="howeya/screencapture-howeya-iculture-eg-org-2025-12-21-14_11_52.png" alt="Howeya iCulture website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>Howeya iCulture</h3><i class="fa-solid fa-mosque"></i></div>
+            <p>Learning platform for Islamic culture with course pages, packages, and structured content management.</p>
+            <div class="project-gallery">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-2025-12-21-14_11_52.png" alt="Howeya homepage" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-courses-2025-12-21-14_12_49.png" alt="Howeya courses" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-package-en-2025-12-21-14_13_33.png" alt="Howeya packages" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-about-us-2025-12-21-14_14_25.png" alt="Howeya about" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-contact-us-2025-12-21-14_15_08.png" alt="Howeya contact" onclick="openModal(this)">
+            </div>
+            <a href="https://howeya.iculture-eg.org/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="iot/screencapture-iotgcc-2025-12-21-14_06_30.png" alt="IoT GCC website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>IoT GCC</h3><i class="fa-solid fa-wifi"></i></div>
+            <p>Internet of Things conference website with speaker submissions, workshop pages, registration, and contact flows.</p>
+            <div class="project-gallery">
+              <img src="iot/screencapture-iotgcc-2025-12-21-14_06_30.png" alt="IoT GCC homepage" onclick="openModal(this)">
+              <img src="iot/screencapture-iotgcc-call-for-speakers-2025-12-21-14_07_04.png" alt="IoT GCC speakers" onclick="openModal(this)">
+              <img src="iot/screencapture-iotgcc-workshop-2025-12-21-14_07_51.png" alt="IoT GCC workshop" onclick="openModal(this)">
+              <img src="iot/screencapture-iotgcc-registration-2025-12-21-14_08_40.png" alt="IoT GCC registration" onclick="openModal(this)">
+              <img src="iot/screencapture-iotgcc-contact-us-2025-12-21-14_09_25.png" alt="IoT GCC contact" onclick="openModal(this)">
+            </div>
+            <a href="https://iotgcc.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_39.png" alt="AlMashaar website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>AlMashaar</h3><i class="fa-solid fa-cart-shopping"></i></div>
+            <p>E-commerce platform with product catalog, cart management, checkout structure, and product detail views.</p>
+            <div class="project-gallery">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_39.png" alt="AlMashaar homepage" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_49.png" alt="AlMashaar products" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_55.png" alt="AlMashaar cart" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_10_10.png" alt="AlMashaar details" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_10_36.png" alt="AlMashaar features" onclick="openModal(this)">
+            </div>
+            <a href="https://almashaar.infinityfree.me/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="iculture/screencapture-iculture-eg-org-index-html-2025-12-21-14_18_28.png" alt="iCulture website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>iCulture</h3><i class="fa-solid fa-landmark"></i></div>
+            <p>Cultural heritage platform with museum, consulting, contact, and story pages designed around structured content.</p>
+            <div class="project-gallery">
+              <img src="iculture/screencapture-iculture-eg-org-index-html-2025-12-21-14_18_28.png" alt="iCulture homepage" onclick="openModal(this)">
+              <img src="iculture/screencapture-iculture-eg-org-museum-html-2025-12-21-14_20_34.png" alt="iCulture museum" onclick="openModal(this)">
+              <img src="iculture/screencapture-iculture-eg-org-consulting-html-2025-12-21-14_21_14.png" alt="iCulture consulting" onclick="openModal(this)">
+              <img src="iculture/screencapture-iculture-eg-org-contact-us-php-2025-12-21-14_21_27.png" alt="iCulture contact" onclick="openModal(this)">
+              <img src="iculture/screencapture-iculture-eg-org-stories-html-2025-12-21-14_24_44.png" alt="iCulture stories" onclick="openModal(this)">
+            </div>
+            <a href="http://iculture-eg.org/index.html" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="gis" class="gis-section">
+      <div class="section-head">
+        <div>
+          <span class="section-label">GIS Portfolio</span>
+          <h2>GIS work presented as focused case studies, not a raw gallery.</h2>
+        </div>
+        <p>
+          Map layouts, spatial analysis outputs, field visuals, and short workflow videos grouped in a cleaner structure.
+        </p>
+      </div>
+
+      <div class="gis-showcase">
+        <aside class="gis-intro-card">
+          <div>
+            <h3>GIS Projects Collection</h3>
+            <p>
+              A curated set of mapping, spatial analysis, field outputs, and workflow videos. The media is kept inside popups so the page stays clean and easy to scan.
+            </p>
+            <div class="gis-pill-row">
+              <span class="gis-pill">Spatial Analysis</span>
+              <span class="gis-pill">Map Layouts</span>
+              <span class="gis-pill">Field Outputs</span>
+              <span class="gis-pill">Workflow Videos</span>
+            </div>
+          </div>
+          <div class="gis-actions">
+            <button class="btn gallery-trigger" type="button" onclick="openGallery('photos')"><i class="fa-solid fa-images"></i> View Photos</button>
+            <button class="btn gallery-trigger secondary" type="button" onclick="openGallery('videos')"><i class="fa-solid fa-circle-play"></i> Watch Videos</button>
+          </div>
+        </aside>
+      </div>
+
+      <article class="almashaar-case">
+        <div class="almashaar-copy">
+          <span class="section-label">Standalone GIS Project</span>
+          <h3>GIS AlMashaar</h3>
+          <p>
+            A separate GIS case study with a clearer project identity: layout maps, suitability analysis, slope analysis, sector outputs, and station-focused deliverables.
+          </p>
+          <div class="almashaar-points">
+            <span><i class="fa-solid fa-check"></i> Suitability and slope analysis</span>
+            <span><i class="fa-solid fa-check"></i> Multiple production-ready layouts</span>
+            <span><i class="fa-solid fa-check"></i> Sector and station map outputs</span>
+          </div>
+        </div>
+        <div class="almashaar-mosaic">
+          <img src="Gis almashaar/Layout_2025_12.png" alt="GIS AlMashaar layout map" onclick="openModal(this)">
+          <img src="Gis almashaar/Layout_suit.png" alt="GIS AlMashaar suitability map" onclick="openModal(this)">
+          <img src="Gis almashaar/Layoutslope.png" alt="GIS AlMashaar slope map" onclick="openModal(this)">
+          <img src="Gis almashaar/Layouttotal.png" alt="GIS AlMashaar total layout" onclick="openModal(this)">
+          <img src="Gis almashaar/Layoutsec1.png" alt="GIS AlMashaar sector map" onclick="openModal(this)">
+          <img src="Gis almashaar/St-448.png" alt="GIS AlMashaar station 448 map" onclick="openModal(this)">
+        </div>
+      </article>
+    </section>
+    <section id="services">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Services</span>
+          <h2>Clear technical work across maps, data, and websites.</h2>
+        </div>
+        <p>
+          My work sits between spatial analysis and practical product delivery: building maps, cleaning and structuring datasets, customizing web platforms, and turning project requirements into usable tools.
+        </p>
+      </div>
+
+      <div class="capabilities">
+        <article class="panel">
+          <span class="panel-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+          <h3>GIS & Spatial Outputs</h3>
+          <p>GIS analysis, 2D and 3D mapping, urban planning maps, remote sensing workflows, and professional reports for technical teams.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-icon"><i class="fa-solid fa-code"></i></span>
+          <h3>Web Development</h3>
+          <p>Custom websites, WordPress themes and plugins, PHP, JavaScript, React interfaces, dashboards, and payment gateway integrations.</p>
+        </article>
+        <article class="panel">
+          <span class="panel-icon"><i class="fa-solid fa-database"></i></span>
+          <h3>Data Management</h3>
+          <p>Structured data entry, information architecture, SQL databases, content operations, SEO research, and quality control for digital platforms.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Tools & Skills</span>
+          <h2>Technical stack used across projects.</h2>
+        </div>
+        <p>
+          A broad toolset covering spatial production, web development, databases, content operations, and design support.
+        </p>
+      </div>
+
+      <div class="skills-wrap">
+        <div class="panel skill-group">
+          <h3>GIS & Mapping</h3>
+          <div class="tags">
+            <span class="tag">ArcGIS Pro</span>
+            <span class="tag">ArcGIS Desktop</span>
+            <span class="tag">QGIS</span>
+            <span class="tag">ArcGIS Online</span>
+            <span class="tag">Google Earth Engine</span>
+            <span class="tag">ERDAS IMAGINE</span>
+            <span class="tag">ENVI</span>
+            <span class="tag">Global Mapper</span>
+            <span class="tag">AutoCAD</span>
+            <span class="tag">Civil 3D</span>
+            <span class="tag">CityEngine</span>
+            <span class="tag">Pix4Dmapper</span>
+          </div>
+        </div>
+
+        <div class="panel skill-group">
+          <h3>Development & Databases</h3>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PHP</span>
+            <span class="tag">React JS</span>
+            <span class="tag">Python</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">PostGIS</span>
+            <span class="tag">GeoServer</span>
+            <span class="tag">OpenLayers</span>
+            <span class="tag">ArcGIS JavaScript API</span>
+          </div>
+        </div>
+
+        <div class="panel skill-group">
+          <h3>Other</h3>
+          <div class="tags">
+            <span class="tag">Google Services</span>
+            <span class="tag">Adobe Photoshop</span>
+            <span class="tag">Adobe Premiere</span>
+            <span class="tag">Canva</span>
+            <span class="tag">Meta for Business</span>
+            <span class="tag">Microsoft Office</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-panel">
+        <div>
+          <h2>Need a GIS product, website, or data workflow built properly?</h2>
+          <p>Send the project details and I will respond with a clear technical direction, scope, and next steps.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:elsayedabo00@gmail.com" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/mohamed-elsayed-74283121a/" target="_blank" class="btn btn-secondary" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Mohamed Elsayed Mohamed. GIS Specialist & Web Developer.</p>
+  </footer>
+
+  <div id="galleryModal" class="gallery-modal" aria-hidden="true">
+    <div class="gallery-panel" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+      <div class="gallery-head">
+        <h3 id="galleryTitle">GIS Media</h3>
+        <button class="gallery-close" type="button" aria-label="Close gallery" onclick="closeGallery()">&times;</button>
+      </div>
+      <div id="galleryContent" class="popup-gallery-grid"></div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal" aria-hidden="true">
+    <button class="close" type="button" aria-label="Close image" onclick="closeModal()">&times;</button>
+    <img class="modal-content" id="modalImage" alt="">
+  </div>
+
+  <script>
+    const gisMedia = {
+      photos: [
+        { src: "Gis/b0d242b9954634abc7d4b41a53a6f28e.png", alt: "GIS map production sample" },
+        { src: "Gis/021039abc1005f8c5f5dda59c5ab00d3.jpg", alt: "GIS spatial mapping sample" },
+        { src: "Gis/06905c1f-1c13-4a20-aa61-3723bef33cf6.jpeg", alt: "GIS analysis output" },
+        { src: "Gis/07982c608c102377e7d83b45b658355e.jpg", alt: "GIS map layout" },
+        { src: "Gis/22a0c527685d7bc8761b7e027cd0c44d.jpg", alt: "GIS spatial visualization" },
+        { src: "Gis/26a5f445938aab7e34c6d78d811c92cc.jpg", alt: "GIS technical map output" },
+        { src: "Gis/45a5f65d-28da-439f-9ac2-ec91649b74c4.jpeg", alt: "GIS project documentation" },
+        { src: "Gis/487456948_4061960997459876_3992099704112857039_n.jpg", alt: "GIS presentation output" },
+        { src: "Gis/8460e258-626f-40cb-b98f-840ede48e0e4.jpeg", alt: "GIS spatial project view" },
+        { src: "Gis/a262f6b18ef5b0e46081b12eb5816ad2.jpg", alt: "GIS field output" }
+      ],
+      videos: [
+        { src: "Gis/snapsave-app_1187911639082709_hd.mp4", alt: "GIS workflow video" },
+        { src: "Gis/snapsave-app_1213942457126388_hd.mp4", alt: "GIS project demonstration" },
+        { src: "Gis/snapsave-app_1356869471865978_sd.mp4", alt: "GIS field and map video" },
+        { src: "Gis/snapsave-app_222704513949512_hd.mp4", alt: "GIS output preview" },
+        { src: "Gis/snapsave-app_950735229949444_sd.mp4", alt: "GIS video sample" },
+        { src: "Gis/snapsave-app_952561302631715_hd.mp4", alt: "GIS project motion" }
+      ]
+    };
+
+    function openGallery(type) {
+      const modal = document.getElementById("galleryModal");
+      const title = document.getElementById("galleryTitle");
+      const content = document.getElementById("galleryContent");
+      const items = gisMedia[type] || [];
+
+      title.textContent = type === "videos" ? "GIS Project Videos" : "GIS Project Photos";
+      content.innerHTML = items.map(function(item) {
+        if (type === "videos") {
+          return `<video src="${item.src}" controls preload="metadata" aria-label="${item.alt}"></video>`;
+        }
+        return `<img src="${item.src}" alt="${item.alt}" onclick="openModal(this)">`;
+      }).join("");
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeGallery() {
+      const modal = document.getElementById("galleryModal");
+      const content = document.getElementById("galleryContent");
+      content.querySelectorAll("video").forEach(function(video) {
+        video.pause();
+      });
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function openModal(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const modal = document.getElementById("imageModal");
+      const galleryModal = document.getElementById("galleryModal");
+      const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+      const navTargets = Array.from(navLinks)
+        .map(function(link) {
+          return document.querySelector(link.getAttribute("href"));
+        })
+        .filter(Boolean);
+      const revealItems = document.querySelectorAll("section, .metric, .project, .panel, .experience-item, .almashaar-case");
+
+      function updateScrollState() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? scrollTop / maxScroll : 0;
+        document.documentElement.style.setProperty("--scroll-progress", Math.round(progress * 1000) / 10 + "%");
+
+        let currentId = "";
+        navTargets.forEach(function(section) {
+          if (section.offsetTop <= scrollTop + 120) {
+            currentId = section.id;
+          }
+        });
+
+        navLinks.forEach(function(link) {
+          link.classList.toggle("is-active", link.getAttribute("href") === "#" + currentId);
+        });
+      }
+
+      revealItems.forEach(function(item) {
+        item.classList.add("reveal");
+      });
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.14 });
+
+        revealItems.forEach(function(item, index) {
+          item.style.setProperty("--reveal-delay", Math.min(index % 5, 4) * 55 + "ms");
+          observer.observe(item);
+        });
+      } else {
+        revealItems.forEach(function(item) {
+          item.classList.add("is-visible");
+        });
+      }
+
+      updateScrollState();
+      window.addEventListener("scroll", updateScrollState, { passive: true });
+      window.addEventListener("resize", updateScrollState);
+
+      modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+      galleryModal.addEventListener("click", function(event) {
+        if (event.target === galleryModal) {
+          closeGallery();
+        }
+      });
+
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          closeModal();
+          closeGallery();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
