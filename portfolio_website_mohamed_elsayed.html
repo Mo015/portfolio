@@ -7,7 +7,7 @@
   <meta name="description" content="Portfolio of Mohamed Elsayed, GIS Specialist, Web GIS Team Leader, and Web Developer building spatial systems, WordPress platforms, and data-driven digital products." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
@@ -1173,6 +1173,11 @@
         padding: 12px 10px;
       }
 
+      #projects .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
       .hero-actions .btn:last-child {
         grid-column: 1 / -1;
       }
@@ -1283,6 +1288,174 @@
         transform: scale(1);
       }
     }
+    /* Editorial geospatial command centre redesign */
+    :root { --ink:#f0ede5; --muted:#9b9a95; --line:rgba(240,237,229,.17); --paper:#0c0d0f; --panel:#121518; --navy:#c8ff3d; --navy-2:#172930; --teal:#c8ff3d; --teal-soft:rgba(200,255,61,.11); --amber:#c8ff3d; --amber-soft:rgba(200,255,61,.1); --surface:#0c0d0f; --blue-soft:#14262e; --shadow:0 25px 60px rgba(0,0,0,.34); --shadow-strong:0 30px 80px rgba(0,0,0,.52); --radius:0; --max:1340px; }
+    html { background:var(--paper); }
+    body { font-family:"DM Sans",sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:20; opacity:.24; background-image:linear-gradient(rgba(147,193,205,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(147,193,205,.045) 1px,transparent 1px); background-size:40px 40px; mask-image:linear-gradient(#000,transparent 80%); }
+    a:focus-visible,button:focus-visible { outline:2px solid var(--teal); outline-offset:4px; }
+    .site-nav { background:rgba(12,13,15,.94); border-bottom:1px solid var(--line); backdrop-filter:none; }
+    .nav-inner { max-width:var(--max); padding:15px 34px; }
+    .brand { color:var(--ink); font:500 .74rem "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .brand::before { content:"ME / "; color:var(--teal); }
+    .nav-links { gap:18px; color:var(--muted); font:400 .68rem "DM Mono",monospace; text-transform:uppercase; letter-spacing:.06em; }
+    .nav-links a { padding:7px 0; }
+    .nav-links a:hover,.nav-links a.is-active { color:var(--ink); }
+    .nav-links a::after { height:1px; background:var(--teal); }
+    .nav-links a[href="#contact"] { color:#111; background:var(--teal); padding:8px 10px; }
+    .nav-links a[href="#contact"]::after { display:none; }
+    .hero { min-height:calc(100vh - 54px); background:radial-gradient(circle at 70% 28%,rgba(27,76,88,.52),transparent 25%),linear-gradient(120deg,#0c0d0f 12%,#11191b 58%,#0c0d0f); border-bottom:1px solid var(--line); }
+    .hero::after { z-index:0; inset:0; background-image:linear-gradient(rgba(200,255,61,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(200,255,61,.11) 1px,transparent 1px); background-size:72px 72px; opacity:.65; mask-image:linear-gradient(90deg,transparent 0%,#000 47%,transparent 100%); animation:gridShift 15s linear infinite; }
+    .hero-inner { max-width:var(--max); padding:clamp(72px,10vw,148px) 34px 90px; grid-template-columns:minmax(0,1.25fr) minmax(280px,.52fr); gap:60px; align-items:center; position:relative; z-index:1; }
+    .eyebrow,.section-label { color:var(--teal); font:500 .7rem "DM Mono",monospace; letter-spacing:.13em; text-transform:uppercase; }
+    .eyebrow::before { width:25px; height:1px; background:var(--teal); }
+    h1,.section-head h2,.almashaar-copy h3,.gis-intro-card h3,.contact-panel h2 { font-family:"DM Serif Display",serif; font-weight:400; }
+    h1 { color:var(--ink); font-size:clamp(4.2rem,10vw,10.4rem); letter-spacing:-.0em; line-height:.76; max-width:940px; margin:0 0 34px; }
+    .hero-copy { color:#bbb9b1; font-size:1.08rem; max-width:620px; }
+    .hero-actions,.contact-actions { gap:10px; }
+    .btn { min-height:44px; padding:11px 15px; border-radius:0; text-transform:uppercase; letter-spacing:.08em; font:500 .7rem "DM Mono",monospace; }
+    .btn-primary { background:var(--teal); color:#111; box-shadow:none; }
+    .btn-secondary { color:var(--ink); background:transparent; border-color:var(--line); }
+    .btn:hover { transform:translateY(-2px); box-shadow:none; border-color:var(--teal); }
+    .hero-card { position:relative; width:100%; padding:0; background:transparent; border:0; box-shadow:none; backdrop-filter:none; }
+    .hero-card::before { content:""; display:block; aspect-ratio:4/5; border:1px solid rgba(200,255,61,.55); background:linear-gradient(0deg,rgba(12,13,15,.25),rgba(12,13,15,.05)),url('me.jpg') center top/cover no-repeat; clip-path:polygon(8% 0,100% 0,100% 92%,92% 100%,0 100%,0 8%); }
+    .hero-card::after { content:"SURVEYED IMAGE · 30.58°N / 31.51°E"; display:block; margin-top:11px; color:var(--muted); font:400 .61rem "DM Mono",monospace; letter-spacing:.08em; }
+    .hero-card h2 { display:block; margin:16px 0 9px; color:var(--teal); font:500 .64rem "DM Mono",monospace; letter-spacing:.11em; text-transform:uppercase; }
+    .hero-card .quick-list { display:grid; gap:5px; color:var(--muted); font-size:.73rem; line-height:1.35; }
+    .hero-card .quick-list i { color:var(--teal); font-size:.7rem; }
+    .metrics { max-width:var(--max); margin:-1px auto 0; padding:0 34px; }
+    .metrics-grid { background:transparent; border:0; box-shadow:none; border-top:1px solid var(--line); border-bottom:1px solid var(--line); border-radius:0; }
+    .metric { padding:25px 18px 22px 0; border-right:1px solid var(--line); margin:0; }
+    .metric:not(:first-child) { padding-left:20px; }
+    .metric:hover { background:transparent; transform:none; }
+    .metric strong { color:var(--teal); font:400 clamp(1.7rem,3vw,2.7rem) "DM Serif Display",serif; letter-spacing:-.05em; }
+    .metric span { color:var(--muted); font:400 .67rem "DM Mono",monospace; text-transform:uppercase; }
+    section { max-width:var(--max); padding:140px 34px 0; position:relative; }
+    section::before { counter-increment:chapter; content:"0" counter(chapter); position:absolute; top:128px; left:34px; color:var(--teal); font:500 .66rem "DM Mono",monospace; letter-spacing:.1em; }
+    main { counter-reset:chapter; }
+    .section-head { grid-template-columns:minmax(230px,.42fr) minmax(0,.58fr); gap:45px; padding-left:96px; margin-bottom:42px; border-top:1px solid var(--line); padding-top:20px; }
+    .section-head h2 { color:var(--ink); font-size:clamp(2.5rem,4.7vw,5rem); letter-spacing:-.0em; line-height:.92; margin-top:13px; }
+    .section-head p { color:var(--muted); font-size:1.02rem; padding-top:43px; max-width:560px; }
+    .capabilities { gap:0; border-top:1px solid var(--line); }
+    .panel,.project,.experience-item { background:transparent; border:0; border-radius:0; box-shadow:none; }
+    .panel { padding:27px 24px 28px 0; border-right:1px solid var(--line); }
+    .panel:not(:first-child) { padding-left:23px; }
+    .panel:hover,.project:hover,.experience-item:hover { transform:none; box-shadow:none; border-color:var(--line); }
+    .panel::before,.project::before,.experience-item::before { height:1px; background:var(--teal); }
+    .panel-icon { width:auto;height:auto;margin-bottom:32px;border-radius:0;color:var(--teal);background:transparent;font-size:1.25rem; }
+    .panel h3,.skill-group h3 { color:var(--ink); font-size:1.12rem; }
+    .panel p,.panel li { color:var(--muted); }
+    .experience-list { border-top:1px solid var(--line); }
+    .experience-item { grid-template-columns:205px 1fr; gap:35px; padding:25px 0; border-bottom:1px solid var(--line); }
+    .date { color:var(--teal); font:400 .68rem "DM Mono",monospace; text-transform:uppercase; letter-spacing:.05em; }
+    .experience-item h3 { color:var(--ink); font-size:1.2rem; margin-bottom:8px; }
+    .experience-item p { color:var(--muted); }
+    .project-grid { grid-template-columns:repeat(2,1fr); gap:0; border-top:1px solid var(--line); }
+    .project { border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .project:nth-child(even) { border-right:0; }
+    .project-cover { aspect-ratio:16/8.5; border:0; filter:saturate(.72) contrast(1.05); }
+    .project:hover .project-cover { transform:none; filter:saturate(1) contrast(1.05); }
+    .project-body { padding:20px 22px 25px; }
+    .project-title h3 { color:var(--ink); font-size:1.16rem; }
+    .project-title i,.project-link { color:var(--teal); }
+    .project p { color:var(--muted); }
+    .project-gallery img { border:1px solid var(--line); border-radius:0; }
+    .gis-section { max-width:none; margin-top:140px; padding:140px 34px; background:linear-gradient(115deg,#101c1e,#0c0d0f 63%); border-color:var(--line); }
+    .gis-section::before { left:max(34px,calc((100vw - var(--max))/2 + 34px)); top:128px; }
+    .gis-section > .section-head { padding-left:96px; }
+    .gis-intro-card { background:#101719; border:1px solid var(--line); border-radius:0; box-shadow:none; }
+    .gis-intro-card p { color:var(--muted); }
+    .gis-pill { border-radius:0; color:var(--ink); font:400 .67rem "DM Mono",monospace; }
+    .gallery-trigger { border-radius:0; }
+    .gallery-modal { background:rgba(4,5,6,.94); }
+    .gallery-panel { border-radius:0; background:#111315; color:var(--ink); }
+    .gallery-head { background:#111315; border-color:var(--line); }
+    .gallery-head h3,.gallery-close { color:var(--ink); }
+    .gallery-close { border-radius:0; background:transparent; border-color:var(--line); }
+    .popup-gallery-grid img,.popup-gallery-grid video { border-radius:0; border-color:var(--line); }
+    .almashaar-case { background:#101719; border-color:var(--line); border-radius:0; box-shadow:none; }
+    .almashaar-copy h3 { color:var(--ink); }
+    .almashaar-copy p { color:var(--muted); }
+    .almashaar-points { color:var(--ink); }
+    .almashaar-points i { color:var(--teal); }
+    .almashaar-mosaic { background:#0c0d0f; }
+    .almashaar-mosaic img { border-radius:0; border-color:var(--line); }
+    .skills-wrap { gap:0; border-top:1px solid var(--line); }
+    .skill-group { border-bottom:1px solid var(--line); }
+    .tags { gap:7px; }
+    .tag { border-radius:0; background:transparent; color:#bcbab3; border:1px solid var(--line); font:400 .67rem "DM Mono",monospace; }
+    .contact-section { padding-bottom:120px; }
+    .contact-panel { border-radius:0; background:var(--teal); color:#111; box-shadow:none; }
+    .contact-panel h2,.contact-panel p { color:#111; }
+    .contact-panel .btn-secondary { color:#111; border-color:rgba(17,17,17,.4); }
+    footer { background:#08090a; color:var(--muted); border-top:1px solid var(--line); font:400 .67rem "DM Mono",monospace; letter-spacing:.05em; }
+    .modal { background:rgba(4,5,6,.94); }
+    .close { color:var(--ink); }
+    @keyframes gridShift { to { background-position:72px 72px; } }
+    @media (max-width:980px) { .nav-links { gap:11px; font-size:.6rem; } .hero-inner { grid-template-columns:1fr .48fr; gap:35px; } section,.gis-section { padding-left:22px;padding-right:22px; } .metrics,.nav-inner { padding-left:22px;padding-right:22px; } section::before{left:22px;} .section-head,.gis-section > .section-head { padding-left:60px; } }
+    @media (max-width:720px) {
+      body { overflow-x:clip; }
+      .site-nav { position:sticky; }
+      .nav-inner { display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px 14px; padding:12px 18px 10px; }
+      .brand { grid-column:1; }
+      .nav-links { grid-column:1 / -1; display:flex; width:100%; max-width:100%; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; gap:18px; padding:8px 0 2px; white-space:nowrap; }
+      .nav-links a,.nav-links a:not([href="#contact"]) { display:block; flex:0 0 auto; font-size:.62rem; }
+      .nav-links a[href="#contact"] { order:99; margin-left:auto; padding:6px 8px; }
+      .hero::before { content:none; display:none; }
+      .hero-inner { grid-template-columns:minmax(0,1fr); padding:58px 18px 58px; gap:31px; }
+      h1 { max-width:100%; margin-bottom:25px; font-size:clamp(3.05rem,14vw,4.7rem); line-height:.82; letter-spacing:-.065em; overflow-wrap:anywhere; }
+      .hero-copy { font-size:1rem; }
+      .hero-actions { gap:8px; }
+      .hero-actions .btn { padding:10px 11px; font-size:.62rem; }
+      .hero-card { width:min(78vw,278px); justify-self:end; }
+      .hero-card::before { aspect-ratio:5/6; }
+      .hero-card .quick-list { font-size:.68rem; }
+      .metrics { padding:0 18px; }
+      .metrics-grid { grid-template-columns:1fr 1fr; }
+      .metric:nth-child(2) { border-right:0; }
+      .metric:nth-child(3) { padding-left:0; }
+      .metric { padding:17px 12px 17px 0; }
+      section,.gis-section { padding:100px 18px 0; }
+      section::before { top:89px; left:18px; }
+      .section-head,.gis-section > .section-head { display:block; padding-left:52px; margin-bottom:30px; }
+      .section-head p { padding-top:18px; }
+      .capabilities,.project-grid,.skills-wrap { grid-template-columns:1fr; }
+      .panel,.project { border-right:0; }
+      /* Keep the Web Projects chapter a calm, contained single-column feed. */
+      #projects .project-grid { display:grid; width:100%; min-width:0; gap:0; }
+      #projects .project { min-width:0; overflow:hidden; }
+      #projects .project-cover { width:100%; max-width:100%; aspect-ratio:16 / 10; object-fit:cover; }
+      #projects .project-body { min-width:0; padding:18px; gap:12px; }
+      #projects .project-title { min-width:0; gap:10px; }
+      #projects .project-title h3 { min-width:0; font-size:1.12rem; overflow-wrap:anywhere; }
+      #projects .project-title i { flex:0 0 auto; }
+      #projects .project p { font-size:.9rem; line-height:1.58; overflow-wrap:anywhere; }
+      #projects .project-gallery {
+        display:flex;
+        width:100%;
+        min-width:0;
+        gap:7px;
+        overflow-x:auto;
+        overscroll-behavior-x:contain;
+        scroll-snap-type:x proximity;
+        padding:2px 0 5px;
+      }
+      #projects .project-gallery img {
+        flex:0 0 clamp(58px, 18vw, 72px);
+        width:clamp(58px, 18vw, 72px);
+        height:48px;
+        object-fit:cover;
+        scroll-snap-align:start;
+      }
+      #projects .project-link { display:inline-flex; align-items:center; align-self:flex-start; max-width:100%; gap:8px; padding-top:2px; }
+      .panel:not(:first-child) { padding-left:0; }
+      .experience-item { grid-template-columns:1fr; gap:10px; }
+      .gis-section { margin-top:100px; padding-bottom:100px; }
+      .gis-section::before { left:18px; top:89px; }
+      .gis-intro-card,.almashaar-case { grid-template-columns:1fr; }
+      .gis-actions { min-width:0; }
+      .contact-section { padding-bottom:80px; }
+    }
   </style>
 </head>
 <body>
@@ -1291,6 +1464,7 @@
       <a class="brand" href="#top">Mohamed Elsayed</a>
       <div class="nav-links">
         <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
         <a href="#projects">Web</a>
         <a href="#gis">GIS</a>
         <a href="#services">Services</a>
@@ -1304,10 +1478,10 @@
     <header class="hero">
       <div class="hero-inner">
         <div>
-          <span class="eyebrow">GIS Specialist · Web GIS Team Leader · Web Developer</span>
-          <h1>Spatial data, web platforms, and digital products that ship.</h1>
+          <span class="eyebrow">GIS Developer | Web Developer | WordPress Developer</span>
+          <h1>MOHAMED ELSAYED MOHAMED</h1>
           <p class="hero-copy">
-            I build practical GIS and web solutions for teams that need accurate maps, organized data, custom WordPress systems, and reliable project delivery.
+            GIS & Web Development professional with hands-on experience in GIS analysis, Web GIS applications, WordPress development, API integrations, payment systems, automation, and digital platform administration. Skilled in PHP, JavaScript, HTML, CSS, Python, SQL, WordPress, React, GeoServer, PostGIS, and ArcGIS technologies.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-layer-group"></i> Web Projects</a>
@@ -1317,12 +1491,12 @@
         </div>
 
         <aside class="hero-card" aria-label="Contact details">
-          <h2>Available for GIS and web projects</h2>
+          <h2>Contact Information</h2>
           <div class="quick-list">
-            <span><i class="fa-solid fa-location-dot"></i> Zagazig, Egypt</span>
+            <span><i class="fa-solid fa-phone"></i> +201550301638</span>
             <span><i class="fa-solid fa-envelope"></i> elsayedabo00@gmail.com</span>
-            <span><i class="fa-solid fa-phone"></i> +20 155 030 1638</span>
-            <a href="https://www.linkedin.com/in/mohamed-elsayed-74283121a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn / mohamed-elsayed</a>
+            <span><i class="fa-solid fa-location-dot"></i> Zagazig - Al Sharqiya - Egypt</span>
+            <a href="https://www.linkedin.com/in/mohamed-elsayed-74283121a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn Account</a>
           </div>
         </aside>
       </div>
@@ -1349,38 +1523,81 @@
 
       <div class="experience-list">
         <article class="experience-item">
-          <div class="date">Feb 2026 - Present</div>
+          <div class="date">July 2026 – Present</div>
           <div>
-            <h3>Web GIS Team Leader - Life Shield, Egypt</h3>
-            <p>Leading web GIS delivery, preparing technical reports, building custom web applications, solving operational issues, and producing high-quality spatial outputs.</p>
+            <h3>Website & Platform Administrator – Conferior | Remote – Part Time</h3>
+            <p>Manage and administer WordPress websites and conference management platforms. Develop and customize website functionality using PHP, HTML, CSS, JavaScript, and WordPress. Integrate and configure MyFatoorah payment gateway with WordPress-based registration and membership systems. Implement secure payment verification, callbacks/webhooks, transaction handling, and payment-status workflows. Manage and update conference websites, including events, speakers, sponsors, strategic partners, themes, topics, and submission pages. Support integration of third-party platforms and services for registration, payments, communication, certification, and virtual events. Perform website testing, troubleshooting, maintenance, and functionality improvements.</p>
           </div>
         </article>
         <article class="experience-item">
-          <div class="date">Aug 2025 - Feb 2026</div>
+          <div class="date">January 2026 – July 2026</div>
           <div>
-            <h3>Web Developer & Data Specialist - Conex, Kuwait</h3>
-            <p>Developed and customized WordPress websites, integrated MyFatoorah payments, and improved data structure and platform information architecture.</p>
+            <h3>GIS Developer \ GIS Team Leader – Life Shield, Egypt</h3>
+            <p>Solved technical and operational challenges efficiently to ensure smooth project execution. Delivered projects with high accuracy while meeting deadlines and quality standards. Prepared professional project reports and technical documentation. Developed custom web applications tailored to project requirements. Solved complex problems using effective programming and automation solutions. Designed and produced high-quality GIS maps and spatial outputs.</p>
           </div>
         </article>
         <article class="experience-item">
-          <div class="date">Jun 2025 - Jan 2026</div>
+          <div class="date">Aug 2025 – Present</div>
           <div>
-            <h3>Data Entry & Website Administrator - Howeya Platform</h3>
-            <p>Managed dashboards, content publishing, backend updates, video editing, plugins, and user interface improvements.</p>
+            <h3>Web Developer / Data Specialist – Conex, Kuwait (Remote – Part Time)</h3>
+            <p>Develop and manage websites using WordPress, with theme and plugin customization. Program and modify functionalities using PHP, HTML, CSS, JavaScript. Integrate payment gateways such as MyFatoorah with forms to enable secure transactions. Collect and organize data from various sources and input it accurately. Review and validate data to ensure quality, accuracy, and compliance with standards. Upload and structure digital content, contributing to the improvement of information architecture within the platform. Responsible for sending bulk email and bulk WhatsApp campaigns using appropriate and effective tools. Conducted B2B lead generation and prospect research using Snov.io, Apollo.io, Hunter.io, and other professional data-research tools.</p>
           </div>
         </article>
         <article class="experience-item">
-          <div class="date">Nov 2022 - Present</div>
+          <div class="date">June 2025 – January 2026</div>
           <div>
-            <h3>Freelancer - GIS & Web Development</h3>
-            <p>Delivered 2D and 3D spatial mapping, interactive Web GIS applications, custom websites, and database-supported tools.</p>
+            <h3>Data Entry & Website Administrator – Howeya Platform</h3>
+            <p>Entered and managed data on the Howeya online platform using WordPress CMS. Handled dashboard administration, plugin installation, and backend modifications using custom coding (HTML, CSS, JavaScript, PHP). Performed video editing tasks for uploaded media using Adobe Premiere, HandBrake and similar tools. Managed and created content for Howeya's social media pages, improving engagement and visibility. Contributed to enhancing website functionality and user experience through strategic plugin integration and interface updates. Built a cross-platform Identity Platform application (Android APK & iOS) using Vibe Coding, featuring a secure multi-language educational system with WordPress API integration, session persistence, and unified codebase across mobile, desktop, and web. Managed social media platforms through Meta Business Suite, including content publishing, page administration, audience management, and performance monitoring. Created, managed, and optimized paid advertising campaigns through Meta Ads Manager, including campaign setup, audience targeting, budget management, and performance analysis.</p>
           </div>
         </article>
         <article class="experience-item">
-          <div class="date">2019 - 2023</div>
+          <div class="date">April 2024 – March 2025</div>
           <div>
-            <h3>Bachelor's Degree in Geomatics - Zagazig University</h3>
-            <p>Graduated with Very Good grade, with applied focus on GIS, surveying, remote sensing, and mapping workflows.</p>
+            <h3>Technical Office, Operations Soldier – Military Engineers</h3>
+            <p>Engaged in technical operations and support within the military engineering unit. Entering military data and executing design and printing tasks using various software and hardware.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">August 2023 – January 2024</div>
+          <div>
+            <h3>GIS & Remote Sensing Instructor</h3>
+            <p>Delivered training on GIS and Remote Sensing applications. Designed and conducted educational workshops for students and professionals.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">February 2023 – July 2023</div>
+          <div>
+            <h3>GIS Specialist – Spatial Variables Unit, Sharkia Governorate (Freelance)</h3>
+            <p>Developed building permits and reconciliation maps for urban planning.</p>
+          </div>
+        </article>
+        <article class="experience-item">
+          <div class="date">November 2022 – Present</div>
+          <div>
+            <h3>Freelancer – GIS & Web Development</h3>
+            <p>Created 2D & 3D maps for academic and professional projects. Developed interactive maps using JavaScript, GIS APIs, and Web GIS technologies. Designed and developed websites using HTML, CSS, JavaScript, and SQL. GIS Data Conversion – As-Built Infrastructure Projects: Converted As-Built drawings and CAD data (DWG/DXF) into GIS-compatible spatial data. Extracted and prepared pipeline and chamber features from engineering drawings for GIS use. Converted and delivered the processed GIS data in formats such as Shapefile and KMZ/KML for mapping and visualization. Prepared pipeline and chamber data with the required spatial information and attributes based on the provided source data. Generated GIS-ready outputs and verified the converted data before delivery.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Education</span>
+          <h2>Academic background and qualifications.</h2>
+        </div>
+        <p>
+          Formal education in geomatics with focus on GIS, surveying, remote sensing, and mapping workflows.
+        </p>
+      </div>
+
+      <div class="experience-list">
+        <article class="experience-item">
+          <div class="date">2019 – 2023</div>
+          <div>
+            <h3>Bachelor's Degree in Geomatics – Zagazig University, Faculty of Arts</h3>
+            <p>Grade: Very Good. Applied focus on GIS, surveying, remote sensing, and mapping workflows.</p>
           </div>
         </article>
       </div>
@@ -1447,6 +1664,82 @@
         </article>
 
         <article class="project">
+          <img src="kwaisummit/screencapture-kwaisummit-2026-10-25-11_45_38.png" alt="KWAI Summit website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>KWAI Summit</h3><i class="fa-solid fa-mountain"></i></div>
+            <p>Summit conference platform with agenda, speakers, workshops, registration, sponsorship packages, and contact management.</p>
+            <div class="project-gallery">
+              <img src="kwaisummit/screencapture-kwaisummit-2026-10-25-11_45_38.png" alt="KWAI Summit homepage" onclick="openModal(this)">
+              <img src="kwaisummit/screencapture-kwaisummit-sponsorship-2026-10-25-11_46_06.png" alt="KWAI Summit sponsorship" onclick="openModal(this)">
+              <img src="kwaisummit/screencapture-kwaisummit-registration-2026-10-25-11_46_15.png" alt="KWAI Summit registration" onclick="openModal(this)">
+              <img src="kwaisummit/screencapture-kwaisummit-speakers-2026-10-25-11_46_25.png" alt="KWAI Summit speakers" onclick="openModal(this)">
+              <img src="kwaisummit/screencapture-kwaisummit-workshop-2026-10-25-11_45_56.png" alt="KWAI Summit workshop" onclick="openModal(this)">
+              <img src="kwaisummit/screencapture-kwaisummit-agenda-2026-10-25-11_46_35.png" alt="KWAI Summit agenda" onclick="openModal(this)">
+              <img src="kwaisummit/screencapture-kwaisummit-contact-2026-10-25-11_46_43.png" alt="KWAI Summit contact" onclick="openModal(this)">
+            </div>
+            <a href="https://kwaisummit.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="Aquashieldconsulting/screencapture-localhost-3006-2026-10-25-11_56_31.png" alt="Aquashield Consulting website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>Aquashield Consulting</h3><i class="fa-solid fa-water"></i></div>
+            <p>Consulting website platform with professional services presentation and structured content layout.</p>
+            <div class="project-gallery">
+              <img src="Aquashieldconsulting/screencapture-localhost-3006-2026-10-25-11_56_31.png" alt="Aquashield homepage" onclick="openModal(this)">
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="howeya/screencapture-howeya-iculture-eg-org-2025-12-21-14_11_52.png" alt="Howeya iCulture website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>Howeya iCulture</h3><i class="fa-solid fa-mosque"></i></div>
+            <p>Learning platform for Islamic culture with course pages, packages, and structured content management.</p>
+            <div class="project-gallery">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-2025-12-21-14_11_52.png" alt="Howeya homepage" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-courses-2025-12-21-14_12_49.png" alt="Howeya courses" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-package-en-2025-12-21-14_13_33.png" alt="Howeya packages" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-about-us-2025-12-21-14_14_25.png" alt="Howeya about" onclick="openModal(this)">
+              <img src="howeya/screencapture-howeya-iculture-eg-org-contact-us-2025-12-21-14_15_08.png" alt="Howeya contact" onclick="openModal(this)">
+            </div>
+            <a href="https://howeya.iculture-eg.org/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="cxostage.com/screencapture-cxostage-2026-10-25-11_50_46.png" alt="CXO Stage website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>CXO Stage</h3><i class="fa-solid fa-users-gear"></i></div>
+            <p>Executive conference platform with modern tender preparation, past events, sponsorship packages, and structured event management.</p>
+            <div class="project-gallery">
+              <img src="cxostage.com/screencapture-cxostage-2026-10-25-11_50_46.png" alt="CXO Stage homepage" onclick="openModal(this)">
+              <img src="cxostage.com/screencapture-cxostage-past-events-2026-10-25-11_51_29.png" alt="CXO Stage past events" onclick="openModal(this)">
+              <img src="cxostage.com/screencapture-cxostage-sponsorship-packages-2026-10-25-11_51_43.png" alt="CXO Stage sponsorship" onclick="openModal(this)">
+              <img src="cxostage.com/screencapture-cxostage-modern-tender-preparation-execution-2026-10-25-11_52_06.png" alt="CXO Stage tender preparation" onclick="openModal(this)">
+            </div>
+            <a href="https://cxostage.com/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_39.png" alt="AlMashaar website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>AlMashaar</h3><i class="fa-solid fa-cart-shopping"></i></div>
+            <p>E-commerce platform with product catalog, cart management, checkout structure, and product detail views.</p>
+            <div class="project-gallery">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_39.png" alt="AlMashaar homepage" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_49.png" alt="AlMashaar products" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_55.png" alt="AlMashaar cart" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_10_10.png" alt="AlMashaar details" onclick="openModal(this)">
+              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_10_36.png" alt="AlMashaar features" onclick="openModal(this)">
+            </div>
+            <a href="https://almashaar.infinityfree.me/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
           <img src="facility/screencapture-kwfacility-2025-12-21-13_45_17.png" alt="KW Facility website homepage" class="project-cover" onclick="openModal(this)">
           <div class="project-body">
             <div class="project-title"><h3>KW Facility</h3><i class="fa-solid fa-building"></i></div>
@@ -1479,22 +1772,6 @@
         </article>
 
         <article class="project">
-          <img src="howeya/screencapture-howeya-iculture-eg-org-2025-12-21-14_11_52.png" alt="Howeya iCulture website homepage" class="project-cover" onclick="openModal(this)">
-          <div class="project-body">
-            <div class="project-title"><h3>Howeya iCulture</h3><i class="fa-solid fa-mosque"></i></div>
-            <p>Learning platform for Islamic culture with course pages, packages, and structured content management.</p>
-            <div class="project-gallery">
-              <img src="howeya/screencapture-howeya-iculture-eg-org-2025-12-21-14_11_52.png" alt="Howeya homepage" onclick="openModal(this)">
-              <img src="howeya/screencapture-howeya-iculture-eg-org-courses-2025-12-21-14_12_49.png" alt="Howeya courses" onclick="openModal(this)">
-              <img src="howeya/screencapture-howeya-iculture-eg-org-package-en-2025-12-21-14_13_33.png" alt="Howeya packages" onclick="openModal(this)">
-              <img src="howeya/screencapture-howeya-iculture-eg-org-about-us-2025-12-21-14_14_25.png" alt="Howeya about" onclick="openModal(this)">
-              <img src="howeya/screencapture-howeya-iculture-eg-org-contact-us-2025-12-21-14_15_08.png" alt="Howeya contact" onclick="openModal(this)">
-            </div>
-            <a href="https://howeya.iculture-eg.org/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </article>
-
-        <article class="project">
           <img src="iot/screencapture-iotgcc-2025-12-21-14_06_30.png" alt="IoT GCC website homepage" class="project-cover" onclick="openModal(this)">
           <div class="project-body">
             <div class="project-title"><h3>IoT GCC</h3><i class="fa-solid fa-wifi"></i></div>
@@ -1511,22 +1788,6 @@
         </article>
 
         <article class="project">
-          <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_39.png" alt="AlMashaar website homepage" class="project-cover" onclick="openModal(this)">
-          <div class="project-body">
-            <div class="project-title"><h3>AlMashaar</h3><i class="fa-solid fa-cart-shopping"></i></div>
-            <p>E-commerce platform with product catalog, cart management, checkout structure, and product detail views.</p>
-            <div class="project-gallery">
-              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_39.png" alt="AlMashaar homepage" onclick="openModal(this)">
-              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_49.png" alt="AlMashaar products" onclick="openModal(this)">
-              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_09_55.png" alt="AlMashaar cart" onclick="openModal(this)">
-              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_10_10.png" alt="AlMashaar details" onclick="openModal(this)">
-              <img src="almashaar/screencapture-almashaar-infinityfree-me-2026-05-14-18_10_36.png" alt="AlMashaar features" onclick="openModal(this)">
-            </div>
-            <a href="https://almashaar.infinityfree.me/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </article>
-
-        <article class="project">
           <img src="iculture/screencapture-iculture-eg-org-index-html-2025-12-21-14_18_28.png" alt="iCulture website homepage" class="project-cover" onclick="openModal(this)">
           <div class="project-body">
             <div class="project-title"><h3>iCulture</h3><i class="fa-solid fa-landmark"></i></div>
@@ -1539,6 +1800,18 @@
               <img src="iculture/screencapture-iculture-eg-org-stories-html-2025-12-21-14_24_44.png" alt="iCulture stories" onclick="openModal(this)">
             </div>
             <a href="http://iculture-eg.org/index.html" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="gcchr.net/screencapture-gcchr-net-2026-10-25-11_49_39.png" alt="GCCHR website homepage" class="project-cover" onclick="openModal(this)">
+          <div class="project-body">
+            <div class="project-title"><h3>GCCHR</h3><i class="fa-solid fa-hospital"></i></div>
+            <p>Healthcare conference platform with professional medical event management and structured content presentation.</p>
+            <div class="project-gallery">
+              <img src="gcchr.net/screencapture-gcchr-net-2026-10-25-11_49_39.png" alt="GCCHR homepage" onclick="openModal(this)">
+            </div>
+            <a href="https://gcchr.net/" target="_blank" class="project-link" rel="noopener">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </article>
       </div>
@@ -1643,39 +1916,50 @@
 
       <div class="skills-wrap">
         <div class="panel skill-group">
-          <h3>GIS & Mapping</h3>
+          <h3>Programming & Databases</h3>
           <div class="tags">
-            <span class="tag">ArcGIS Pro</span>
-            <span class="tag">ArcGIS Desktop</span>
-            <span class="tag">QGIS</span>
-            <span class="tag">ArcGIS Online</span>
-            <span class="tag">Google Earth Engine</span>
-            <span class="tag">ERDAS IMAGINE</span>
-            <span class="tag">ENVI</span>
-            <span class="tag">Global Mapper</span>
-            <span class="tag">AutoCAD</span>
-            <span class="tag">Civil 3D</span>
-            <span class="tag">CityEngine</span>
-            <span class="tag">Pix4Dmapper</span>
+            <span class="tag">Python</span>
+            <span class="tag">GeoServer</span>
+            <span class="tag">Open Layers</span>
+            <span class="tag">PHP</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Media Query</span>
+            <span class="tag">React JS</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">phpMyAdmin</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">PostGIS</span>
+            <span class="tag">Flutter (Vibe)</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">ArcGIS for JavaScript</span>
           </div>
         </div>
 
         <div class="panel skill-group">
-          <h3>Development & Databases</h3>
+          <h3>GIS & Mapping Software</h3>
           <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">PHP</span>
-            <span class="tag">React JS</span>
-            <span class="tag">Python</span>
-            <span class="tag">WordPress</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">PostGIS</span>
-            <span class="tag">GeoServer</span>
-            <span class="tag">OpenLayers</span>
-            <span class="tag">ArcGIS JavaScript API</span>
+            <span class="tag">ArcGIS Desktop</span>
+            <span class="tag">ArcGIS Pro</span>
+            <span class="tag">ERDAS IMAGINE</span>
+            <span class="tag">ArcGIS Online</span>
+            <span class="tag">QGIS</span>
+            <span class="tag">Google Earth Pro</span>
+            <span class="tag">Google Earth Engine</span>
+            <span class="tag">Global Mapper</span>
+            <span class="tag">AutoCAD</span>
+            <span class="tag">Civil 3D</span>
+            <span class="tag">ProLink</span>
+            <span class="tag">Sokkia Link</span>
+            <span class="tag">Surfer</span>
+            <span class="tag">Open Source Data</span>
+            <span class="tag">Sas Planet</span>
+            <span class="tag">CityEngine</span>
+            <span class="tag">ENVI</span>
+            <span class="tag">Pix4Dmapper</span>
+            <span class="tag">JOSM</span>
+            <span class="tag">Rockworks</span>
           </div>
         </div>
 
@@ -1871,4 +2155,3 @@
   </script>
 </body>
 </html>
-
